@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Health Command Center | AI Predictive Maintenance</title>
+    <meta name="description" content="AI-Powered Predictive Maintenance Dashboard for Industrial Robots - Real-time health monitoring, anomaly detection, and financial impact analysis.">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-left">
+        <div class="logo-icon">&#x1F916;</div>
+        <div>
+            <h1>ROBOTIC HEALTH COMMAND CENTER</h1>
+            <div class="header-subtitle"><span class="live-dot"></span>AI-Powered Predictive Maintenance System</div>
+        </div>
+    </div>
+    <nav class="nav-tabs" id="navTabs">
+        <button class="nav-tab active" data-page="overview">Operational Overview</button>
+        <button class="nav-tab" data-page="anomaly">Anomaly Deep-Dive</button>
+        <button class="nav-tab" data-page="financial">Financial Impact</button>
+        <button class="nav-tab" data-page="sustainability">Sustainability</button>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+    <!-- ============ PAGE 1: OVERVIEW ============ -->
+    <section class="page active" id="page-overview">
+        <div class="kpi-row" id="kpi-overview"></div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4CA;</span> Robot Health Map</div>
+                <div style="overflow-x:auto;">
+                    <table class="health-table" id="healthTable"></table>
+                </div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4C8;</span> Status Distribution</div>
+                <div class="chart-container"><canvas id="chartDonut"></canvas></div>
+            </div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4C8;</span> OEE Trend Over Time</div>
+                <div class="chart-container"><canvas id="chartOEE"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F3ED;</span> Location Health</div>
+                <div class="chart-container"><canvas id="chartLocation"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 2: ANOMALY ============ -->
+    <section class="page" id="page-anomaly">
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F50D;</span> Anomaly Score Trend</div>
+                <div class="chart-container"><canvas id="chartAnomalyTrend"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x26AB;</span> Torque vs Vibration</div>
+                <div class="chart-container"><canvas id="chartScatter"></canvas></div>
+            </div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F321;</span> Sensor Correlation Trends</div>
+                <div class="chart-container"><canvas id="chartSensors"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F527;</span> Top Problem Joints</div>
+                <div class="chart-container"><canvas id="chartJointBar"></canvas></div>
+            </div>
+        </div>
+        <div class="chart-grid full-width">
+            <div class="chart-card full-span">
+                <div class="chart-title"><span>&#x1F5FA;</span> Joint Anomaly Heatmap</div>
+                <div id="heatmapContainer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 3: FINANCIAL ============ -->
+    <section class="page" id="page-financial">
+        <div class="kpi-row" id="kpi-financial"></div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4B0;</span> Savings by Robot</div>
+                <div class="chart-container"><canvas id="chartSavingsBar"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4B8;</span> Failure Cost vs Savings</div>
+                <div class="chart-container"><canvas id="chartCostCompare"></canvas></div>
+            </div>
+        </div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F4C9;</span> Cost & Savings Trend</div>
+                <div class="chart-container"><canvas id="chartCostTrend"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x23F1;</span> Downtime by Robot</div>
+                <div class="chart-container"><canvas id="chartDowntime"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PAGE 4: SUSTAINABILITY ============ -->
+    <section class="page" id="page-sustainability">
+        <div class="kpi-row" id="kpi-sustainability"></div>
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x26A1;</span> Energy Waste Trend</div>
+                <div class="chart-container"><canvas id="chartEnergyTrend"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title"><span>&#x1F331;</span> Carbon Savings by Robot</div>
+                <div class="chart-container"><canvas id="chartCarbonBar"></canvas></div>
+            </div>
+        </div>
+        <div class="chart-grid full-width">
+            <div class="chart-card full-span">
+                <div class="chart-title"><span>&#x1F310;</span> Energy Waste vs Anomaly Score</div>
+                <div class="chart-container"><canvas id="chartEnergyAnomaly"></canvas></div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    Built with AI + IoT | Predictive Maintenance System | Isolation Forest Anomaly Detection
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
